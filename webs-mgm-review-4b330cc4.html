@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>美高梅 · 专题志</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f9fd;
+            color: #1a2e3a;
+            line-height: 1.6;
+            padding: 0 1rem 3rem;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* ---------- 首页横幅 ---------- */
+        .hero {
+            margin: 1.8rem 0 2.5rem;
+            background: linear-gradient(145deg, #184b5a 0%, #1f6b7a 70%, #2f8f9c 100%);
+            border-radius: 32px;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(22, 75, 85, 0.18);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 7vw, 3.6rem);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #e5f9ff;
+            line-height: 1.2;
+            max-width: 750px;
+            word-break: break-word;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #c2e7ef;
+            margin-top: 1.2rem;
+            max-width: 620px;
+            font-weight: 350;
+            background: rgba(0,0,0,0.08);
+            backdrop-filter: blur(2px);
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #d4f0f5;
+            color: #0b404e;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            margin-top: 1.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---------- 背景说明 ---------- */
+        .context-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2.2rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 6px 20px rgba(25, 60, 70, 0.06);
+            border-left: 6px solid #3ea0ae;
+        }
+
+        .context-card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #154652;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .context-card h2 small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #598894;
+            margin-left: 0.2rem;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.6rem;
+        }
+
+        .context-block {
+            background: #f1f9fc;
+            padding: 1.6rem 1.5rem;
+            border-radius: 20px;
+        }
+
+        .context-block p {
+            font-size: 1rem;
+            color: #1d3f4b;
+        }
+
+        .highlight {
+            color: #157482;
+            font-weight: 500;
+        }
+
+        /* ---------- 三段自然介绍 (网格卡片风格) ---------- */
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.8rem 0;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 26px;
+            padding: 2rem 1.5rem 1.8rem;
+            box-shadow: 0 6px 22px rgba(32, 85, 95, 0.07);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(90, 168, 180, 0.15);
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(24, 78, 90, 0.12);
+        }
+
+        .info-card h3 {
+            font-size: 1.45rem;
+            font-weight: 500;
+            color: #19525f;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card p {
+            color: #2c4c57;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .card-icon {
+            display: inline-block;
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            color: #2d8696;
+        }
+
+        /* ---------- 页尾访问提示 ---------- */
+        .footer-access {
+            margin-top: 3.5rem;
+            padding: 2.2rem 2rem;
+            background: #e5f2f6;
+            border-radius: 40px;
+            text-align: center;
+            border: 1px solid #b7d8e0;
+        }
+
+        .footer-access p {
+            color: #1b4957;
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin: 0 auto 1rem;
+        }
+
+        .footer-access a {
+            color: #0c5b6b;
+            background: white;
+            padding: 0.5rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-block;
+            border: 1px solid #3e98a8;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+        }
+
+        .footer-access a:hover {
+            background: #226d7c;
+            color: white;
+            border-color: #226d7c;
+        }
+
+        .footer-note {
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: #587d87;
+        }
+
+        /* ---------- 移动端调优 ---------- */
+        @media (max-width: 640px) {
+            body {
+                padding: 0 0.8rem 2.5rem;
+            }
+
+            .hero {
+                padding: 2rem 1.3rem;
+                border-radius: 24px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .context-card {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .context-grid {
+                gap: 1rem;
+            }
+
+            .info-card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .footer-access {
+                padding: 1.8rem 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 小点缀 */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #b0d5dd, transparent);
+            margin: 1.2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 首页横幅 hero -->
+    <header class="hero">
+        <h1>美高梅 · 稳定之页</h1>
+        <p>入口即界面 · 界面即入口</p>
+        <span class="hero-tag">专题志 · 2025</span>
+    </header>
+
+    <!-- 背景说明 -->
+    <section class="context-card">
+        <h2>背景 <small> Background</small></h2>
+        <div class="context-grid">
+            <div class="context-block">
+                <p>作为数字服务的前沿阵地，<span class="highlight">美高梅</span>始终将访问的稳定性与信息清晰度视为核心。每一个载入的页面都经过细致的结构编排，让用户从第一屏开始便获得明确的方向感。这种对“稳定入口”的坚持，源自十余年网络交互的积累与反思。</p>
+            </div>
+            <div class="context-block">
+                <p>从最初的静态通报到如今的多模块平台，<span class="highlight">美高梅</span>的迭代一直围绕一个原则：降低认知负荷，提高信息效率。无论是内容排版、色彩对比还是可点击区域的反馈，都力求在视觉与逻辑上形成统一。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 三段自然介绍 (网格卡片) -->
+    <div class="section-grid">
+        <div class="info-card">
+            <div class="card-icon">📘</div>
+            <h3>结构即引导</h3>
+            <p>每个模块的层级经过推敲，避免信息过载。标题区、内容区、操作区边界清晰，用户视线自然流动。在 <a href="https://webs-mgm.com">美高梅</a> 的页面里，版面本身就是一个无声的向导。</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">⚙️</div>
+            <h3>稳定优先</h3>
+            <p>技术架构采用轻量级静态方案，配合 CDN 分发，确保全球访问的低延迟。减少第三方依赖，缩短首屏渲染时间。每一次刷新都意味着快速抵达，这是对用户体验的基本承诺。</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">🌿</div>
+            <h3>克制与专注</h3>
+            <p>蓝绿色系贯穿界面，传递冷静与信任。无弹窗干扰，无冗余装饰。所有元素都为“阅读－理解－行动”这一链条服务，让注意力真正集中在有价值的内容上。</p>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-access">
+        <p>如果您希望进一步了解平台的构成与最新动态，可直接访问<a href="https://webs-mgm.com">美高梅</a>，页面结构清晰，信息组织经过反复打磨，适合深度浏览与日常查阅。</p>
+        <div class="footer-note">持续维护 · 简洁呈现</div>
+    </div>
+
+    <!-- 页面底部装饰线（无功能） -->
+    <div style="margin-top: 2.5rem; text-align: center; font-size: 0.75rem; color: #8eaeb8; letter-spacing: 0.5px;">
+        <span>杂志专题式 · 稳定入口 · 蓝绿点缀</span>
+    </div>
+
+</div>
+</body>
+</html>
